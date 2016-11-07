@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mini CRM</title>
+</head>
+<body>
+	<select name="clients" id="clients"></select>
+	<button id="selectCustomer">Select Customer</button>
+
+	<div id="selectedCustomer">
+	</div>
+
+	<div>
+		<form>
+			<li>
+				<label for="new_first_name">First Name </label><input type="text" id="new_first_name">
+			</li>
+			<li>
+				<label for="new_last_name">Last Name </label><input type="text" id="new_last_name">
+			</li>
+			<li>
+				<label for="new_role">Role </label><input type="text" id="new_role">
+			</li>
+			<li>
+				<label for="new_company">Company </label><input type="text" id="new_company">
+			</li>
+			<li>
+				<label for="new_phone">Phone </label><input type="text" id="new_phone">
+			</li>
+			<li>
+				<label for="new_email">E-mail </label><input type="text" id="new_email">
+			</li>
+			<li>
+				<label for="new_description">Description </label><input type="text" id="new_description">
+			</li>
+			<button id="createCustomer">Create Customer</button>
+		</form>
+	</div>
+
+	<script>
+		window.appConfig = {
+			url: 'http://192.168.1.32:2605'
+		}
+	</script>
+	<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/node_modules/mustache/mustache.min.js"></script>
+	<script type="text/javascript" src="/app.js"></script>
+</body>
+</html>

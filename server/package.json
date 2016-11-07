@@ -1,0 +1,24 @@
+{
+  "name": "mini-crm",
+  "version": "1.0.0",
+  "description": "### Étape 1 : * Créez un serveur express  * Récupérez le fichier json `crm.json` * Inserez les informations dans le `index.html`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tactless7/Mini-CRM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tactless7/Mini-CRM/issues"
+  },
+  "homepage": "https://github.com/Tactless7/Mini-CRM#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1"
+  }
+}

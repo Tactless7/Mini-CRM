@@ -48,6 +48,7 @@
 				description: $('#new_description').val()
 			};
 			this.post('/newCustomer');
+			this.listeners();
 		},
 		post: function(path){
 			$.ajax({

@@ -8,8 +8,8 @@
 	<select name="clients" id="clients"></select>
 	<button id="selectCustomer">Select Customer</button>
 
-	<div>
-		<ul>
+	<div id="selectedCustomer">
+		<!-- <ul>
 			<li>First Name : <span id="first_name"></span></li> 
 			<li>Last Name : <span id="last_name"></span></li>
 			<li>Role : <span id="role"></span></li>
@@ -17,7 +17,34 @@
 			<li>Phone : <span id="phone"></span></li>
 			<li>Email : <span id="email"></span></li>
 			<li>Description : <span id="description"></span></li>
-		</ul>
+		</ul> -->
+	</div>
+
+	<div>
+		<form>
+			<li>
+				<label for="new_first_name">First Name </label><input type="text" id="new_first_name">
+			</li>
+			<li>
+				<label for="new_last_name">Last Name </label><input type="text" id="new_last_name">
+			</li>
+			<li>
+				<label for="new_role">Role </label><input type="text" id="new_role">
+			</li>
+			<li>
+				<label for="new_company">Company </label><input type="text" id="new_company">
+			</li>
+			<li>
+				<label for="new_phone">Phone </label><input type="text" id="new_phone">
+			</li>
+			<li>
+				<label for="new_email">E-mail </label><input type="text" id="new_email">
+			</li>
+			<li>
+				<label for="new_description">Description </label><input type="text" id="new_description">
+			</li>
+			<button id="createCustomer">Create Customer</button>
+		</form>
 	</div>
 
 	<script>
@@ -26,6 +53,7 @@
 		}
 	</script>
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="node_modules/mustache/mustache.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

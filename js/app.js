@@ -9,7 +9,7 @@
 			this.get('/crm.json', this.displaySelect.bind(this));
 		},
 		listeners: function(){
-			$('select').on('click', 'option', this.displayCustomer.bind(this));
+			$('#selectCustomer').on('click', this.displayCustomer.bind(this));
 		},
 		get: function(path, callback){
 			$.ajax({
@@ -19,15 +19,20 @@
 			});
 		},
 		displaySelect: function(data){
-			console.log(data);
 			this.customers = data.customers;
-			console.log(this.customers);
 			for (var i = 0 ; i < this.customers.length ; i++) {
-				$('#clients').append('<option value="' + data.customers[i].id + '">' + data.customers[i].first_name + ' ' + data.customers[i].last_name + '</option>');
+				$('#clients').append('<option value="' + i + '">' + data.customers[i].first_name + ' ' + data.customers[i].last_name + '</option>');
 			}
 		},
-		displayCustomer: function(){
-
+		displayCustomer: function(){ //A factoriser
+			var choosenCustomer = this.customers[$('option:selected').val()];
+			$('#first_name').html(choosenCustomer.first_name);
+			$('#last_name').html(choosenCustomer.last_name);
+			$('#role').html(choosenCustomer.role);
+			$('#company').html(choosenCustomer.company);
+			$('#phone').html(choosenCustomer.phone);
+			$('#email').html(choosenCustomer.email);
+			$('#description').html(choosenCustomer.description);
 		}
 	}
 

@@ -7,34 +7,38 @@
 <body>
 	<select name="clients" id="clients"></select>
 	<button id="selectCustomer">Select Customer</button>
+	<button id="reloadClients">Reload Customers List</button>
 
 	<div id="selectedCustomer">
 	</div>
 
 	<div>
-		<form>
+		<form action="/newCustomer" method="post">
 			<li>
-				<label for="new_first_name">First Name </label><input type="text" id="new_first_name">
+				<input name="id" id="new_id" type="hidden" value="">
 			</li>
 			<li>
-				<label for="new_last_name">Last Name </label><input type="text" id="new_last_name">
+				<label for="new_first_name">First Name </label><input type="text" name="first_name" id="new_first_name">
 			</li>
 			<li>
-				<label for="new_role">Role </label><input type="text" id="new_role">
+				<label for="new_last_name">Last Name </label><input type="text" name="last_name" id="new_last_name">
 			</li>
 			<li>
-				<label for="new_company">Company </label><input type="text" id="new_company">
+				<label for="new_role">Role </label><input type="text" name="role" id="new_role">
 			</li>
 			<li>
-				<label for="new_phone">Phone </label><input type="text" id="new_phone">
+				<label for="new_company">Company </label><input type="text" name="company" id="new_company">
 			</li>
 			<li>
-				<label for="new_email">E-mail </label><input type="text" id="new_email">
+				<label for="new_phone">Phone </label><input type="text" name="phone" id="new_phone">
 			</li>
 			<li>
-				<label for="new_description">Description </label><input type="text" id="new_description">
+				<label for="new_email">E-mail </label><input type="text" name="email" id="new_email">
 			</li>
-			<button id="createCustomer">Create Customer</button>
+			<li>
+				<label for="new_description">Description </label><textarea name="description" id="new_description"></textarea>
+			</li>
+			<button type="submit" id="createCustomer">Create Customer</button>
 		</form>
 	</div>
 

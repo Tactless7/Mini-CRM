@@ -4,7 +4,7 @@
 		config: {},
 		customers: null,
 		newCustomer: {},
-		kikou: 'kikou',
+		editedCustomer: {},
 		init: function(){
 			this.config = window.appConfig;
 			this.get('/crm.json', this.displaySelect.bind(this));
@@ -23,6 +23,7 @@
 			$('#editCustomer').on('click', function(){
 				this.get('/crm.json', this.displayEdition.bind(this));
 			}.bind(this));
+			$('#saveChanges').on('click', this.saveEdition.bind(this));
 		},
 		get: function(path, callback){
 			$.ajax({
@@ -55,13 +56,13 @@
 				email: $('#new_email').val(),
 				description: $('#new_description').val()
 			};
-			this.post('/newCustomer');
+			this.post('/newCustomer', this.newCustomer);
 		},
-		post: function(path){
+		post: function(path, customer){
 			$.ajax({
 				url: this.config.url + path,
 				type: 'POST',
-				data: this.newCustomer,
+				data: customer,
 				success: function(){
 					console.log('Data sent to server !');
 				}
@@ -72,6 +73,19 @@
 			for(var key in choosenCustomer){
 				$('#edit_' + key).val(choosenCustomer[key]);
 			}
+		},
+		saveEdition: function(){
+			this.editedCustomer = {
+				id: $('#edit_id').val(),
+				first_name: $('#edit_first_name').val(),
+				last_name: $('#edit_last_name').val(),
+				company: $('#edit_company').val(),
+				role: $('#edit_role').val(),
+				phone: $('#edit_phone').val(),
+				email: $('#edit_email').val(),
+				description: $('#edit_description').val()
+			}
+			this.post('/editCustomer', this.editedCustomer);
 		}
 	};
 

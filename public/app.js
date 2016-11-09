@@ -84,7 +84,7 @@
 				phone: $('#edit_phone').val(),
 				email: $('#edit_email').val(),
 				description: $('#edit_description').val()
-			}
+			};
 			this.post('/editCustomer', this.editedCustomer);
 		}
 	};

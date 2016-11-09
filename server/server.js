@@ -23,7 +23,7 @@ app.post('/newCustomer', function(req, res){
 			if(err){
 				return console.log(err);
 			}
-			res.send('Bien joué');
+			res.send('Everything is ok');
 			return console.log('Saved !');
 		});
 	});
@@ -39,16 +39,15 @@ app.post('/editCustomer', function(req, res){
 		var crm = JSON.parse(data);
 		crm.customers[customerItem.id - 1] = customerItem;
 		crm = JSON.stringify(crm);
-		console.log(crm);
 
-		fs.writeFile(__dirname + '/..public/crm.json', crm, function(err){
+		fs.writeFile(__dirname + '/../public/crm.json', crm, function(err){
 			if(err){
 				return console.log(err);
 			}
+			res.send('Everything is ok');
 			return console.log('Changes Saved');
 		});
 	});
-	res.send('Everything is ok');
 });
 
 

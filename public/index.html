@@ -8,15 +8,43 @@
 	<select name="clients" id="clients"></select>
 	<button id="selectCustomer">Select Customer</button>
 	<button id="reloadClients">Reload Customers List</button>
+	<button id="editCustomer">Edit Customer</button>
 
 	<div id="selectedCustomer">
 	</div>
-
-	<div>
-		<form action="/newCustomer" method="post">
+	
+	<div id="edition">
+		<form action="/editCustomer" method="post">
 			<li>
-				<input name="id" id="new_id" type="hidden" value="">
+				<input name="id" id="edit_id" type="hidden">
 			</li>
+			<li>
+				<label for="edit_first_name">First Name </label><input type="text" name="first_name" id="edit_first_name">
+			</li>
+			<li>
+				<label for="edit_last_name">Last Name </label><input type="text" name="last_name" id="edit_last_name">
+			</li>
+			<li>
+				<label for="edit_role">Role </label><input type="text" name="role" id="edit_role">
+			</li>
+			<li>
+				<label for="edit_company">Company </label><input type="text" name="company" id="edit_company">
+			</li>
+			<li>
+				<label for="edit_phone">Phone </label><input type="text" name="phone" id="edit_phone">
+			</li>
+			<li>
+				<label for="edit_email">E-mail </label><input type="text" name="email" id="edit_email">
+			</li>
+			<li>
+				<label for="edit_description">Description </label><textarea name="description" id="edit_description"></textarea>
+			</li>
+			<button type="submit" id="editCustomer">Edit Customer</button>
+		</form>
+	</div>
+
+	<div id="creation">
+		<form action="/newCustomer" method="post">
 			<li>
 				<label for="new_first_name">First Name </label><input type="text" name="first_name" id="new_first_name">
 			</li>

@@ -4,22 +4,25 @@
 		config: {},
 		customers: null,
 		newCustomer: {},
+		kikou: 'kikou',
 		init: function(){
 			this.config = window.appConfig;
 			this.get('/crm.json', this.displaySelect.bind(this));
 			this.listeners();
 		},
 		listeners: function(){
-			var self = this;
 			$('#selectCustomer').on('click', this.displayCustomer.bind(this));
 			$('#createCustomer').on('click', this.createCustomer.bind(this));
 			$('#reloadClients').on('click', function(){
-				self.get('/crm.json', self.displaySelect.bind(this));
-			});
+				this.get('/crm.json', this.displaySelect.bind(this));
+			}.bind(this));
 			$('form').on('click', function(event){
 				event.preventDefault();
 				return false;
 			});
+			$('#editCustomer').on('click', function(){
+				this.get('/crm.json', this.displayEdition.bind(this));
+			}.bind(this));
 		},
 		get: function(path, callback){
 			$.ajax({
@@ -63,6 +66,18 @@
 					console.log('Data sent to server !');
 				}
 			});
+		},
+		displayEdition: function(data){
+			var choosenCustomer = this.customers[$('option:selected').val() - 1];
+			$('#edit_id').val(choosenCustomer.id);
+			$('#edit_first_name').val(choosenCustomer.first_name);
+			$('#edit_last_name').val(choosenCustomer.last_name);
+			$('#edit_role').val(choosenCustomer.role);
+			$('#edit_phone').val(choosenCustomer.phone);
+			$('#edit_company').val(choosenCustomer.company);
+			$('#edit_email').val(choosenCustomer.email);
+			$('#edit_description').val(choosenCustomer.description);
+
 		}
 	};
 

@@ -69,15 +69,9 @@
 		},
 		displayEdition: function(data){
 			var choosenCustomer = this.customers[$('option:selected').val() - 1];
-			$('#edit_id').val(choosenCustomer.id);
-			$('#edit_first_name').val(choosenCustomer.first_name);
-			$('#edit_last_name').val(choosenCustomer.last_name);
-			$('#edit_role').val(choosenCustomer.role);
-			$('#edit_phone').val(choosenCustomer.phone);
-			$('#edit_company').val(choosenCustomer.company);
-			$('#edit_email').val(choosenCustomer.email);
-			$('#edit_description').val(choosenCustomer.description);
-
+			for(var key in choosenCustomer){
+				$('#edit_' + key).val(choosenCustomer[key]);
+			}
 		}
 	};
 
